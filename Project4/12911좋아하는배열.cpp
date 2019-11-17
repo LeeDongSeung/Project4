@@ -5,11 +5,11 @@ using ii = pair<int, int>;
 const int INF = 987654321;
 #define sz(v) (int)((v).size())
 int N, K;
-int sum[11], dp[11][100002];
+int sum[50002], dp[2][50002];
 const int MOD = (int)1e9 + 7;
 
 int main(void) {
-	//freopen("input.txt", "r", stdin);
+	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cin >> N >> K;
@@ -18,14 +18,15 @@ int main(void) {
 		sum[1] += 1;
 	}
 	for (int i = 2; i <= N; i++) {
+		sum[i % 2] = 0;
 		for (int k = 1; k <= K; k++) {
-			dp[i][k] = sum[i - 1];
+			dp[i%2][k] = sum[(i - 1)%2];
 			for (int j = k * 2; j <= K; j += k) {
-				dp[i][k] = (dp[i][k] - dp[i - 1][j] + MOD) % MOD;
+				dp[i%2][k] = (dp[i%2][k] - dp[(i - 1)%2][j] + MOD) % MOD;
 			}
-			sum[i] = (sum[i] + dp[i][k]) % MOD;
+			sum[i%2] = (sum[i%2] + dp[i%2][k]) % MOD;
 		}
 	}
-	cout << sum[N] << '\n';
+	cout << sum[N%2] << '\n';
 	return 0;
 }
