@@ -18,7 +18,7 @@
     <Text Include="input.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="12911좋아하는배열.cpp">
+    <ClCompile Include="4번.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
