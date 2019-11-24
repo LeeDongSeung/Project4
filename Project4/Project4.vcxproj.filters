@@ -18,7 +18,7 @@
     <Text Include="input.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="4번.cpp">
+    <ClCompile Include="solvedac.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
